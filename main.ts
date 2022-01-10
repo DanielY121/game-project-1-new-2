@@ -1,20 +1,112 @@
 input.onGesture(Gesture.TiltLeft, function () {
-    basic.showString("For player")
+    basic.showString("Merry Christmas and Happy New Year")
     basic.showLeds(`
+        . . # . .
         . # # # .
+        # # # # #
         . # # # .
-        . # # # .
-        . # # # .
-        . # # # .
+        . . # . .
         `)
-    basic.showString("Red pocket ")
-    basic.showString("Chinese New Year")
+    basic.showLeds(`
+        . . # . .
+        . # . # .
+        # . . . #
+        . # . # .
+        . . # . .
+        `)
+    basic.showLeds(`
+        . . . . .
+        . . # . .
+        . # . # .
+        . . # . .
+        . . . . .
+        `)
+    basic.showLeds(`
+        . . . . .
+        . . # . .
+        . # # # .
+        . . # . .
+        . . . . .
+        `)
+    basic.showLeds(`
+        . . . . .
+        . . # . .
+        . # . # .
+        . . # . .
+        . . . . .
+        `)
+    basic.showLeds(`
+        . . # . .
+        . # . # .
+        # . . . #
+        . # . # .
+        . . # . .
+        `)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # # # # #
+        . # # # .
+        . . # . .
+        `)
+    basic.showLeds(`
+        . . # . .
+        . # . # .
+        # . . . #
+        . # . # .
+        . . # . .
+        `)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # # # # #
+        . # # # .
+        . . # . .
+        `)
     basic.showString("Thank you for supporting this game ")
     basic.showString("Made by DanielY121")
 })
 input.onButtonPressed(Button.A, function () {
     Player.change(LedSpriteProperty.X, -1)
     music.playMelody("C5 - - - - - - - ", 500)
+})
+input.onGesture(Gesture.Shake, function () {
+    Enemy.delete()
+    Player.delete()
+    music.playMelody("A B C5 D C F A F ", 500)
+    music.playMelody("C5 B A G A B C5 D ", 500)
+    for (let index = 0; index < 4; index++) {
+        basic.showLeds(`
+            . # # # .
+            # . . . #
+            # # . # #
+            # . . . #
+            . # # # .
+            `)
+        basic.showLeds(`
+            . # # # .
+            # # . # #
+            # . . . #
+            # . . . #
+            . # # # .
+            `)
+        basic.showLeds(`
+            . # # # .
+            # . . . #
+            # # . # #
+            # . . . #
+            . # # # .
+            `)
+        basic.showLeds(`
+            . # # # .
+            # . . . #
+            # . . . #
+            # # . # #
+            . # # # .
+            `)
+    }
+    Enemy = game.createSprite(0, 0)
+    Player = game.createSprite(2, 4)
 })
 input.onButtonPressed(Button.AB, function () {
     Bullet = game.createSprite(Player.get(LedSpriteProperty.X), 3)
@@ -58,11 +150,11 @@ let Player: game.LedSprite = null
 music.playMelody("B A G B E C5 E C5 ", 500)
 Player = game.createSprite(2, 4)
 Enemy = game.createSprite(0, 0)
-loops.everyInterval(300000, function () {
+loops.everyInterval(60000, function () {
     game.addScore(1)
 })
 basic.forever(function () {
-    if (game.score() > 10) {
+    if (game.score() == 10) {
         for (let index = 0; index < 5; index++) {
             Enemy_fever_1 = game.createSprite(4, 0)
             basic.pause(250)
