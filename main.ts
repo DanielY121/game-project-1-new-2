@@ -147,8 +147,8 @@ let Bullet_from_enemy: game.LedSprite = null
 let Bullet: game.LedSprite = null
 let Enemy: game.LedSprite = null
 let Player: game.LedSprite = null
-music.playMelody("B A G B E C5 E C5 ", 500)
 Player = game.createSprite(2, 4)
+music.playMelody("B A G B E C5 E C5 ", 500)
 Enemy = game.createSprite(0, 0)
 loops.everyInterval(60000, function () {
     game.addScore(1)
