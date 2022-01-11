@@ -113,18 +113,14 @@ input.onButtonPressed(Button.AB, function () {
     basic.pause(250)
     for (let index = 0; index < 5; index++) {
         if (Bullet.isTouching(Enemy)) {
+            Player.delete()
             Enemy.delete()
             Bullet_from_enemy.delete()
-            game.pause()
             music.playMelody("E G F G A F A G ", 296)
-            game.resume()
             game.addScore(1)
-            game.pause()
-            Enemy = game.createSprite(0, 0)
-            Player.delete()
-            Bullet.delete()
             Player = game.createSprite(2, 4)
-            game.resume()
+            Enemy = game.createSprite(0, 0)
+            Bullet.delete()
         } else if (Bullet.isTouching(Bullet_from_enemy)) {
             Bullet_from_enemy.delete()
             Bullet.delete()
